@@ -32,7 +32,23 @@ router.get('/edit/:id',(req, res)=>{
     })
 })
 
+//ruta para eliminar registro
+router.get('/delete/:id', (req,res)=>{
+    conexion.query('DELETE FROM usuarios WHERE id=?', [id],(error,results)=>{
+        if(error){
+            throw error;
+        }else{
+            res.render('/');
+        } 
+    })
+})
+
+
+
 const crud = require('./controllers/crud');
-router.post('/save', crud.save)
+const req = require('express/lib/request');
+const res = require('express/lib/response');
+router.post('/save', crud.save);
+router.post('/update', crud.update);
 
 module.exports = router;
