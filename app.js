@@ -10,10 +10,7 @@ app.use(express(json));
 app.use('/', require('./router'));
 
 
-const PORT = process.env.PORT || 4532
 
-console.log({PORT})
-
-app.listen(PORT, function() {
-    console.log("servidor escuchando en el puerto", PORT)
+app.listen(5000,()=>{
+    console.log(' server corriendo en http://localhost:5000');
 });
